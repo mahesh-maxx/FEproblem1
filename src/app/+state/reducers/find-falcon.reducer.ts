@@ -8,7 +8,7 @@ export interface FindFalconState {
 }
 
 export const initialFindFalconState: FindFalconState = {
-  result: { status: 'false' },
+  result: { status: null },
   loading: false,
   loaded: false
 };
@@ -39,7 +39,7 @@ export function findFalconReducer(
     case FindFalconActionTypes.ClearFalconResult:
       return {
         ...state,
-        result: { status: 'false' },
+        result: { status: null },
         loaded: false,
         loading: false
       };

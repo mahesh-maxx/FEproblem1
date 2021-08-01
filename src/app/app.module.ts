@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   PageNotFoundComponent,
   FindingFalconComponent,
-  HomeComponent
+  HomeComponent,
+  ResultsComponent
 } from './containers';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
@@ -36,7 +37,8 @@ import {
     SelectPlanetComponent,
     SelectVehicleComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

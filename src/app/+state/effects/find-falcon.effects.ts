@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
@@ -6,6 +7,7 @@ import {
   catchError,
   mergeMap,
   switchMap,
+  tap,
   withLatestFrom
 } from 'rxjs/operators';
 import { DataService } from '../../services';
@@ -24,7 +26,8 @@ export class FindFalconEffects {
   constructor(
     private actions$: Actions<FindFalconActions>,
     private dataService: DataService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private router: Router
   ) {}
 
   @Effect()
@@ -43,6 +46,15 @@ export class FindFalconEffects {
           return of(new FindFalconFail(error));
         })
       );
+    })
+  );
+
+  @Effect({ dispatch: false })
+  addProductSuccess$ = this.actions$.pipe(
+    ofType<FindFalconSuccess>(FindFalconActionTypes.FindFalconSuccess),
+    tap(() => {
+      console.log('effe ');
+      this.router.navigate(['mission-result']);
     })
   );
 }

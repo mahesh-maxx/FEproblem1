@@ -4,9 +4,11 @@ import { combineLatest, Observable } from 'rxjs';
 import {
   AppState,
   FindFalcon,
+  GetPlanets,
   getSelectedPlanets,
   getSelectedVehicles,
-  getTotalTimeTaken
+  getTotalTimeTaken,
+  GetVehicles
 } from './../../+state';
 import { map } from 'rxjs/operators';
 
@@ -21,6 +23,8 @@ export class FindingFalconComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.store.dispatch(new GetVehicles());
+    this.store.dispatch(new GetPlanets());
     this.readyToFind$ = combineLatest([
       this.store.select(getSelectedVehicles),
       this.store.select(getSelectedPlanets)

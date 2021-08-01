@@ -9,9 +9,4 @@ import { AppState, GetPlanets, GetVehicles } from './+state';
 })
 export class AppComponent {
   title = 'Finding-Falcon';
-
-  constructor(private store: Store<AppState>) {
-    this.store.dispatch(new GetVehicles());
-    this.store.dispatch(new GetPlanets());
-  }
 }

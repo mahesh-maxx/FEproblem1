@@ -4,9 +4,11 @@ import { AppComponent } from './app.component';
 import {
   FindingFalconComponent,
   HomeComponent,
-  PageNotFoundComponent
+  PageNotFoundComponent,
+  ResultsComponent
 } from './containers';
 import { SetTokenGuard } from './guards';
+import { ResultGuard } from './guards/result.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'find-falcon',
+    canActivate: [SetTokenGuard],
     component: FindingFalconComponent
+  },
+  {
+    path: 'mission-result',
+    canActivate: [ResultGuard],
+    component: ResultsComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];

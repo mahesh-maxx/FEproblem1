@@ -12,7 +12,11 @@
       <select-planet class="col-md-3"></select-planet>
       <select-planet class="col-md-3"></select-planet>
       <select-planet class="col-md-3"></select-planet>
-      <button *ngIf="readyToFind$ | async" (click)="findFalcon()">
+      <button
+        *ngIf="readyToFind$ | async"
+        class="btn btn-large btn-primary find"
+        (click)="findFalcon()"
+      >
         Find Falcon
       </button>
     </div>
