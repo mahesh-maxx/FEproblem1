@@ -1,0 +1,47 @@
+<form class="form">
+  <div class="card">
+    <div class="card-header">
+      <div class="img-bound">
+        <!-- imageBasePath + (selectedPlanet.name ? selectedPlanet.name + '.png' : 'planet-not-selected.png') -->
+        <img
+          class="card-img-top"
+          [src]="
+            imageBasePath +
+            (selectedPlanet
+              ? selectedPlanet.name + '.png'
+              : 'planet-not-selected.png')
+          "
+          alt="Card image cap"
+        />
+      </div>
+      <h5 class="text-center">
+        {{
+          selectedPlanet ? (selectedPlanet.name | uppercase) : 'Select Planet'
+        }}
+      </h5>
+      <h6 class="text-center">
+        Distance : {{ selectedPlanet ? selectedPlanet.distance : '0' }}
+      </h6>
+
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="planet"
+          (change)="updateSelectedPlanet($event)"
+        >
+          <option value="">Select Planet</option>
+          <option *ngFor="let planet of planetList" [value]="planet.name">
+            {{ planet.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <select-vehicle
+        [selectedPlanet]="selectedPlanet"
+        *ngIf="selectedPlanet"
+      ></select-vehicle>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+<div>
+  <ul>
+    <li *ngFor="let item of vehicleList; index as i">
+      <label>
+        <input
+          type="radio"
+          [value]="item.name"
+          [checked]="item.name == selectedVehicle"
+          [disabled]="
+            item.max_distance < selectedPlanet.distance || item.total_no === 0
+          "
+          (change)="updateSelectedVehicle($event)"
+        />
+        <img [src]="imageBasePath + item.name + '.png'" style="height: 2rem" />
+        {{ item.name }} ({{ item.total_no }})
+      </label>
+    </li>
+  </ul>
+</div>
