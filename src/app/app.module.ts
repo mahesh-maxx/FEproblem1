@@ -4,18 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PageNotFoundComponent, FindingFalconComponent } from './containers';
 import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule
-} from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+  PageNotFoundComponent,
+  FindingFalconComponent,
+  HomeComponent
+} from './containers';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import {
+  clearState,
   FindFalconEffects,
+  metaReducers,
   PlanetsEffects,
   reducerForApp,
   VehiclesEffects
@@ -23,8 +22,11 @@ import {
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { SelectPlanetComponent } from './components';
-import { SelectVehicleComponent } from './components/select-vehicle/select-vehicle.component';
+import {
+  SelectPlanetComponent,
+  HeaderComponent,
+  SelectVehicleComponent
+} from './components';
 
 @NgModule({
   declarations: [
@@ -32,14 +34,16 @@ import { SelectVehicleComponent } from './components/select-vehicle/select-vehic
     FindingFalconComponent,
     PageNotFoundComponent,
     SelectPlanetComponent,
-    SelectVehicleComponent
+    SelectVehicleComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducerForApp),
+    StoreModule.forRoot(reducerForApp, { metaReducers }),
     EffectsModule.forRoot([VehiclesEffects, PlanetsEffects, FindFalconEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 50, // Retains last 50 states

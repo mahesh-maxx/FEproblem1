@@ -1,0 +1,17 @@
+.navbar-brand {
+  margin-left: 1rem;
+}
+
+.header-action {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+li.active a {
+  color: #fff;
+}
+
+.pointer {
+  cursor: pointer;
+}

@@ -19,3 +19,5 @@ export const reducerForApp: ActionReducerMap<AppState> = {
 };
 
 export const getAppState = createFeatureSelector<AppState>('falcon');
+
+export * from './clear-state.reducer';

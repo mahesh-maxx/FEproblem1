@@ -1,18 +1,33 @@
-<div>
-  <ul>
-    <li *ngFor="let item of vehicleList; index as i">
+<div class="form-group">
+  <ul class="list-group">
+    <li
+      class="list-group-item list-group-item-action"
+      *ngFor="let vehicle of vehicleList; index as i"
+      [ngClass]="[
+        selectedVehicle && selectedVehicle == vehicle.name
+          ? 'list-group-item-success'
+          : '',
+        vehicle.max_distance < selectedPlanet.distance || vehicle.total_no === 0
+          ? 'disable-item'
+          : ''
+      ]"
+    >
       <label>
         <input
           type="radio"
-          [value]="item.name"
-          [checked]="item.name == selectedVehicle"
+          [value]="vehicle.name"
+          [checked]="vehicle.name == selectedVehicle"
           [disabled]="
-            item.max_distance < selectedPlanet.distance || item.total_no === 0
+            vehicle.max_distance < selectedPlanet.distance ||
+            vehicle.total_no === 0
           "
           (change)="updateSelectedVehicle($event)"
         />
-        <img [src]="imageBasePath + item.name + '.png'" style="height: 2rem" />
-        {{ item.name }} ({{ item.total_no }})
+        <img
+          [src]="imageBasePath + vehicle.name + '.png'"
+          style="height: 2rem"
+        />
+        {{ vehicle.name }} ({{ vehicle.total_no }})
       </label>
     </li>
   </ul>
