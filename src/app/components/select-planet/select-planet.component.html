@@ -14,14 +14,15 @@
           alt="Card image cap"
         />
       </div>
-      <h5 class="text-center">
-        {{
-          selectedPlanet ? (selectedPlanet.name | uppercase) : 'Select Planet'
-        }}
-      </h5>
-      <h6 class="text-center">
-        Distance : {{ selectedPlanet ? selectedPlanet.distance : '0' }}
-      </h6>
+      <div *ngIf="selectedPlanet">
+        <h5 class="text-center">
+          {{ selectedPlanet.name | uppercase }}
+        </h5>
+        <h6 class="text-center">
+          Distance :
+          {{ selectedPlanet.distance }} MegaMiles
+        </h6>
+      </div>
 
       <div class="form-group">
         <select

@@ -11,6 +11,15 @@
           ? 'disable-item'
           : ''
       ]"
+      data-toggle="tooltip"
+      data-placement="top"
+      [title]="
+        'Range: ' +
+        vehicle.max_distance +
+        ' MegaMiles, Speed: ' +
+        vehicle.speed +
+        ' MM/Hour'
+      "
     >
       <label>
         <input
