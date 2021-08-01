@@ -7,7 +7,7 @@ import { CookieService } from './cookie.service';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  constructor(public http: HttpClient, public cookieService: CookieService) {}
 
   getVehicles() {
     return this.http.get(API_URL + 'vehicles');

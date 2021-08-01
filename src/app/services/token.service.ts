@@ -6,7 +6,7 @@ import { API_URL } from '../models';
   providedIn: 'root'
 })
 export class TokenService {
-  constructor(private http: HttpClient) {}
+  constructor(public http: HttpClient) {}
 
   getToken() {
     const headers = {
