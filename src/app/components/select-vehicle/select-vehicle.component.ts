@@ -91,14 +91,11 @@ export class SelectVehicleComponent implements OnInit, OnChanges {
       let timeTaken = this.selectedPlanet.distance / sVehicle.speed;
 
       if (this.timeTaken > 0) {
-        //delete time take from the array in service
         this.store.dispatch(new RemoveTimeTaken(this.timeTaken));
 
-        //add time taken for this planet
         this.timeTaken = timeTaken;
         this.store.dispatch(new AddTimeTaken(this.timeTaken));
       } else {
-        //add time taken for this planet
         this.timeTaken = timeTaken;
         this.store.dispatch(new AddTimeTaken(timeTaken));
       }

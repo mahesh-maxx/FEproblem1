@@ -1,4 +1,4 @@
-import { ESelectAction, IFalcon, IPlanet } from 'src/app/models';
+import { IFalcon } from 'src/app/models';
 import { FindFalconActions, FindFalconActionTypes } from '../actions';
 
 export interface FindFalconState {
@@ -35,13 +35,6 @@ export function findFalconReducer(
         ...state,
         loading: false,
         loaded: false
-      };
-    case FindFalconActionTypes.ClearFalconResult:
-      return {
-        ...state,
-        result: { status: null },
-        loaded: false,
-        loading: false
       };
     default:
       return state;

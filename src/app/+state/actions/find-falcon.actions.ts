@@ -4,9 +4,7 @@ import { IFalcon } from '../../models';
 export enum FindFalconActionTypes {
   FindFalcon = '[FindFalcon] Find Falcon',
   FindFalconSuccess = '[FindFalcon] Find Falcon Success',
-  FindFalconFail = '[FindFalcon] Find Falcon Fail',
-
-  ClearFalconResult = '[ClearFalconResult] Clear Falcon Result'
+  FindFalconFail = '[FindFalcon] Find Falcon Fail'
 }
 
 export class FindFalcon implements Action {
@@ -23,12 +21,4 @@ export class FindFalconFail implements Action {
   constructor(public payload: Error) {}
 }
 
-export class ClearFalconResult implements Action {
-  readonly type = FindFalconActionTypes.ClearFalconResult;
-}
-
-export type FindFalconActions =
-  | FindFalcon
-  | FindFalconSuccess
-  | FindFalconFail
-  | ClearFalconResult;
+export type FindFalconActions = FindFalcon | FindFalconSuccess | FindFalconFail;

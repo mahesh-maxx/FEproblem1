@@ -5,18 +5,18 @@
     <h1>Finding Falcone!</h1>
     <br />
     <div class="container" *ngIf="missionDetails$ | async as missionDetails">
-      <div *ngIf="missionDetails.status == 'success'">
+      <div *ngIf="missionDetails.status == 'success'" class="success">
         <h5>
           Success! Congratulations on Finding Falcone. King Shan is mighty
           pleased.
         </h5>
-        <h5>Time taken: {{ timeSpent$ | async }}</h5>
+        <h5>Time taken: {{ timeSpent$ | async }} Hours</h5>
         <h5>Planet found: {{ missionDetails.planet_name }}</h5>
       </div>
 
-      <div *ngIf="missionDetails.status == 'false'">
+      <div *ngIf="missionDetails.status == 'false'" class="fail">
         <h5>Failed to find Falcone</h5>
-        <h5>Time taken: {{ timeSpent$ | async }}</h5>
+        <h5>Time taken: {{ timeSpent$ | async }} Hours</h5>
       </div>
 
       <a class="btn btn-large btn-primary" (click)="startMission()">

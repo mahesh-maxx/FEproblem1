@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@ngrx/store';
 import { AppState, getAppState } from '../reducers';
 
 export const vehiclesState = (state: AppState) => state.vehicles;

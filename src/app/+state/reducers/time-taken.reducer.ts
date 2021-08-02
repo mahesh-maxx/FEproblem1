@@ -23,11 +23,6 @@ export function timeTakenReducer(
         ...state,
         totalTimeTaken: state.totalTimeTaken - action.payload
       };
-    case TimeTakenActionTypes.ResetTimeTaken:
-      return {
-        ...state,
-        totalTimeTaken: 0
-      };
     default:
       return state;
   }

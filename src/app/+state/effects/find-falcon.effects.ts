@@ -50,10 +50,9 @@ export class FindFalconEffects {
   );
 
   @Effect({ dispatch: false })
-  addProductSuccess$ = this.actions$.pipe(
+  findFalconSuccess$ = this.actions$.pipe(
     ofType<FindFalconSuccess>(FindFalconActionTypes.FindFalconSuccess),
     tap(() => {
-      console.log('effe ');
       this.router.navigate(['mission-result']);
     })
   );

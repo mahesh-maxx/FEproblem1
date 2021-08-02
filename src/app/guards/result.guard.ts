@@ -15,11 +15,11 @@ import { AppState, getFalconResult } from '../+state';
 export class ResultGuard implements CanActivate {
   constructor(private store: Store<AppState>, private router: Router) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate() {
     return this.store.pipe(
       select(getFalconResult),
       map((s) => {
-        if (s.status) {
+        if (s && s.status) {
           return true;
         }
         this.router.navigate(['']);

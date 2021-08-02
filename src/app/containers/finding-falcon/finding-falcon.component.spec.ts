@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
-import { from } from 'rxjs';
-import { AppState, getTotalTimeTaken } from './../../+state';
+import { combineLatest, from, of } from 'rxjs';
+import { AppState, FindFalcon, getTotalTimeTaken } from './../../+state';
 import { MockSelectPlanetComponent } from './../../components';
 
 import { FindingFalconComponent } from './finding-falcon.component';
@@ -39,5 +39,25 @@ describe('FindingFalconComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render find falcon button when planets and vehicles selected', () => {
+    // arrange
+    component.readyToFind$ = of(true);
+    // act
+    fixture.detectChanges();
+    const findFalconButton =
+      fixture.debugElement.nativeElement.querySelector('.find');
+    // assert
+    expect(findFalconButton).not.toBeNull();
+  });
+
+  it('should dispatch action to find falcon', () => {
+    // arrange
+    spyOn(store, 'dispatch');
+    // act
+    component.findFalcon();
+    // assert
+    expect(store.dispatch).toHaveBeenCalledWith(new FindFalcon());
   });
 });
