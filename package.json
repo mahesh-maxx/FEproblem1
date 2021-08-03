@@ -1,13 +1,14 @@
 {
   "name": "finding-falcon",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "coverage": "ng test --code-coverage=true --codeCoverage=true --watch=false"
   },
   "private": true,
   "dependencies": {

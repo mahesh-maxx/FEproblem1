@@ -10,7 +10,7 @@ import {
   HomeComponent,
   ResultsComponent
 } from './containers';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import {
   clearState,
@@ -28,6 +28,7 @@ import {
   HeaderComponent,
   SelectVehicleComponent
 } from './components';
+import { RefreshTokenInterceptor } from './http-interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,13 @@ import {
       logOnly: environment.production // Restrict extension to log-only mode
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
