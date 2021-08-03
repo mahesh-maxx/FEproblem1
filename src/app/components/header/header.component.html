@@ -20,7 +20,9 @@
         [routerLinkActive]="['active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <a class="nav-link" [routerLink]="['']">Home </a>
+        <a class="nav-link" [routerLink]="['']" (click)="abortSearch()"
+          >Home
+        </a>
       </li>
       <li
         class="nav-item"

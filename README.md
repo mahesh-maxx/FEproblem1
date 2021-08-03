@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Run npm install
+
+then Run npm run start
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
@@ -12,9 +16,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
+Run npm run build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
+
+for Unit test
+npm run test
+
+For Code-Coverage
+ 
+ Run 
+ npm run coverage
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
